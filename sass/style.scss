@@ -1,62 +1,62 @@
 @import "compass/reset";
 @import "compass/css3";
- 
+
 //////////////////////////
 // BASIC SETTINGS //
 //////////////////////////
 
 body {
-	color: #333;  
-	text-align: center;
-	font-family: 'Roboto', sans-serif;
-	background: #f7f7f7;
+  color: #333;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background: #f7f7f7;
 }
 
-h1{
-	font-size: 2.25em;
-	padding: 0 1em;
-	font-style: italic;
-}	
+h1 {
+  font-size: 2.25em;
+  padding: 0 1em;
+  font-style: italic;
+}
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
- 
+
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 ion-icon {
-	font-size: 25px; // icon size
+  font-size: 25px; // icon size
 }
 
 .gap {
-	padding: 1em 0 0;
+  padding: 1em 0 0;
 }
 
-.padDown{
-	padding: .5em 0em .5em ;
+.padDown {
+  padding: .5em 0em .5em;
 }
 
 // outer and inner allows vertical alignment
-.outer{
-	padding: 20px;
-	text-align: center;
-	overflow-x: hidden;
+.outer {
+  padding: 20px;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-.inner{
-	display: inline-block;
-	padding: 40px;
+.inner {
+  display: inline-block;
+  padding: 40px;
 }
 
 // make the avatar a circle
 .avatar {
-	@include box-shadow(0 0 0px 3px #fff, 0 0 0 4px #ccc, 0 4px 6px #333);
-	@include border-radius(100px); // half the avatar size
-	width: 200px;
-	height: 200px;
+  @include box-shadow(0 0 0px 3px #fff, 0 0 0 4px #ccc, 0 4px 6px #333);
+  @include border-radius(100px); // half the avatar size
+  width: 200px;
+  height: 200px;
 }
 
 /////////////////////////////
@@ -65,94 +65,312 @@ ion-icon {
 
 // Animation for image and text
 .loadanimation {
-	animation: 1s ease-in-out both fadeInRight;
+  animation: 1s ease-in-out both fadeInRight;
 }
 
 @keyframes fadeInRight {
-	0% {
-		opacity: 0;
-		-webkit-transform: translateX(300px);
-	}
-	100% {
-		opacity: 1;
-		-webkit-transform: translateX(0);
-	}
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
 }
-       
+
 // tiles with hyperlinks will simply fade in order
 .tile {
-	animation: .4s ease-in-out both fade-in;
+  animation: .4s ease-in-out both fade-in;
 }
 
 // delay through 6 items
 @for $i from 1 through 6 {
-	.tile {
-		&:nth-child(#{$i}) {
-			animation-delay: 1.2 + $i * (.15s); //delay increases per loop
-		}
-	}
+  .tile {
+    &:nth-child(#{$i}) {
+      animation-delay: 1.2 + $i * (.15s); //delay increases per loop
+    }
+  }
 }
 
 /* TODO At the moment, transforming will break the hover code*/
 @keyframes fade-in {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 // Hover code animation, button scales
 .social {
-	li {
-		position: relative;
-		@include inline-block();
-		margin: .5em;
-		@include transition(all .15s ease);
-		
-		&:hover {
-			@include scale(1.25);
-			color: white;
-			//-webkit-animation: 0; //disable keyframes
-		}
- 
-		&:before {
-			position: absolute;
-			width: 2em; /* center align technique, give width, negative half margin */
-			margin-left: -1em;
-			top: 1.5em;
-			left: 50%;
-		}
- 
-		a {
-			display: block;
-			color: inherit;
-			padding: 1em 1em 1em;
-			width: 6em;
-			// allow truncation if needed
-			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-		}		
-	}
+  li {
+    position: relative;
+    @include inline-block();
+    margin: .5em;
+    @include transition(all .15s ease);
+
+    &:hover {
+      @include scale(1.25);
+      color: white;
+      //-webkit-animation: 0; //disable keyframes
+    }
+
+    &:before {
+      position: absolute;
+      width: 2em; /* center align technique, give width, negative half margin */
+      margin-left: -1em;
+      top: 1.5em;
+      left: 50%;
+    }
+
+    a {
+      display: block;
+      color: inherit;
+      padding: 1em 1em 1em;
+      width: 6em;
+      // allow truncation if needed
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
 }
 
 // Colours for each of the buttons
-.icon-resume {color: #e95950}
-.icon-resume:hover {background:#e95950}
+.icon-resume {
+  color: #e95950
+}
 
-.icon-email {color: #004f9f}
-.icon-email:hover {background:#004f9f}
+.icon-resume:hover {
+  background: #e95950
+}
 
-.icon-github {color: #333}
-.icon-github:hover {background:#333}
+.icon-email {
+  color: #004f9f
+}
 
-.icon-linkedin {color: #0077b5}
-.icon-linkedin:hover {background:#0077b5}
+.icon-email:hover {
+  background: #004f9f
+}
 
-.icon-instagram {color: #cd486b}
-.icon-instagram:hover {background:#cd486b}
+.icon-github {
+  color: #333
+}
 
-.icon-soundcloud {color: #ff7700}
-.icon-soundcloud:hover {background:#ff7700}
+.icon-github:hover {
+  background: #333
+}
+
+.icon-linkedin {
+  color: #0077b5
+}
+
+.icon-linkedin:hover {
+  background: #0077b5
+}
+
+.icon-instagram {
+  color: #cd486b
+}
+
+.icon-instagram:hover {
+  background: #cd486b
+}
+
+.icon-soundcloud {
+  color: #ff7700
+}
+
+.icon-soundcloud:hover {
+  background: #ff7700
+}
+
+
+
+.timeline {
+  position: relative;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40px;
+  width: 2px;
+  margin-left: -1.5px;
+  content: '';
+  background-color: #e9ecef;
+}
+
+.timeline > li {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 50px;
+}
+
+.timeline > li:after, .timeline > li:before {
+  display: table;
+  content: ' ';
+}
+
+.timeline > li:after {
+  clear: both;
+}
+
+.timeline > li .timeline-panel {
+  position: relative;
+  float: right;
+  width: 100%;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+
+.timeline > li .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+
+.timeline > li .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+
+.timeline > li .timeline-image {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  margin-left: 0;
+  text-align: center;
+  color: white;
+  border: 7px solid #e9ecef;
+  border-radius: 100%;
+  background-color: #fed136;
+}
+
+.timeline > li .timeline-image h4 {
+  font-size: 10px;
+  line-height: 14px;
+  margin-top: 12px;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+  padding: 0 20px 0 100px;
+  text-align: left;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:before {
+  right: auto;
+  left: -15px;
+  border-right-width: 15px;
+  border-left-width: 0;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel:after {
+  right: auto;
+  left: -14px;
+  border-right-width: 14px;
+  border-left-width: 0;
+}
+
+.timeline > li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline .timeline-heading h4 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.timeline .timeline-heading h4.subheading {
+  text-transform: none;
+}
+
+.timeline .timeline-body > ul,
+.timeline .timeline-body > p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .timeline:before {
+    left: 50%;
+  }
+  .timeline > li {
+    min-height: 100px;
+    margin-bottom: 100px;
+  }
+  .timeline > li .timeline-panel {
+    float: left;
+    width: 41%;
+    padding: 0 20px 20px 30px;
+    text-align: right;
+  }
+  .timeline > li .timeline-image {
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+  }
+  .timeline > li .timeline-image h4 {
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 16px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    float: right;
+    padding: 0 30px 20px 20px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .timeline > li {
+    min-height: 150px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px;
+  }
+  .timeline > li .timeline-image {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+  }
+  .timeline > li .timeline-image h4 {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 30px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 20px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .timeline > li {
+    min-height: 170px;
+  }
+  .timeline > li .timeline-panel {
+    padding: 0 20px 20px 100px;
+  }
+  .timeline > li .timeline-image {
+    width: 170px;
+    height: 170px;
+    margin-left: -85px;
+  }
+  .timeline > li .timeline-image h4 {
+    margin-top: 40px;
+  }
+  .timeline > li.timeline-inverted > .timeline-panel {
+    padding: 0 100px 20px 20px;
+  }
+}
